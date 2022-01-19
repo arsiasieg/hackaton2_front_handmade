@@ -1,0 +1,40 @@
+.navbar{
+    border-bottom: 5px solid #0c193a ;
+}
+
+.title{
+    margin : 2rem;
+    color : #0c193a;
+    font-weight: 650;
+}
+
+.subtitle{
+    font-weight: bold;
+}
+
+.project{
+    width: 70%;
+    margin : auto;
+}
+
+mat-icon{
+    font-size: 1.2rem;
+    color: rgba(192, 192, 192, 0.616);
+}
+
+.create{
+    width: 90%;
+    margin : auto;
+    text-align: center;
+    padding : .5rem;
+    border : 1px dashed #0c193a33;
+}
+
+.deconnect{
+    color: #29b9ad;
+    border : 1px solid #29b9ad;
+    margin: 20px 10px 0;
+    padding: 10px;
+    text-align: center;
+    border-radius : 2px;
+}
