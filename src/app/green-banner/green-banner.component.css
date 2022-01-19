@@ -1,0 +1,15 @@
+.banner{
+    height: 50px;
+    background-color : #89E6C5;
+    font-weight: bold;
+}
+
+select{
+    font-weight: bold;
+    background-color: #89E6C5;
+    border : none;
+}
+
+option{
+    font-weight: bold;
+}
