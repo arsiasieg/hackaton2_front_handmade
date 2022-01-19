@@ -7,7 +7,14 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./categories-tutorials.component.css'],
 })
 export class CategoriesTutorialsComponent implements OnInit {
-  categories = ['Peinture', 'Cuisine', 'Plomberie', 'Salle de bain'];
+  categories: String[][] = [
+    ['Peinture', 'format_paint'],
+    ['Cuisine', 'kitchen'],
+    ['Plomberie', 'plumbing'],
+    ['Salle de bain', 'bathtub'],
+    ['Exterieur', 'outdoor_grill'],
+    ['Carrelage', 'grid_view'],
+  ];
 
   public constructor(private titleService: Title) {}
 
