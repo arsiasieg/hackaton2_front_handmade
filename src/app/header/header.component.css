@@ -1,0 +1,25 @@
+.header{
+    height: 132px;
+    background-image : url("src/assets/img/header.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.buttonAccount{
+    width : 90px;
+    height: 40px;
+    border-radius: 10px;
+    /* background-color: rgba(144, 137, 247, 0.425); */
+    position: absolute;
+    right : 15.5%;
+}
+
+.buttomHome{
+    width : 140px;
+    height: 40px;
+    border-radius: 10px;
+    /* background-color: rgba(144, 137, 247, 0.425); */
+    position: absolute;
+    left : 1%;
+}
