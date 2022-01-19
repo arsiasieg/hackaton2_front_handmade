@@ -1,0 +1,27 @@
+.soldesImage, .home{
+    width: 414px;
+    height: auto;
+}
+
+h3{
+    font-weight: bold;
+    font-size : 20px;
+}
+
+h6{
+    font-size: 14px;
+    color :#505971;
+    font-weight: 400;
+}
+
+.imgCarousel{
+    width: 210px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button{
+    background: none;
+    border: none;
+}
