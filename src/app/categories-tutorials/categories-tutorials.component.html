@@ -1,1 +1,15 @@
-<p>categories-tutorials works!</p>
+<div class="container">
+  <h3 class="ms-3 my-4">Nos tutoriels :</h3>
+
+  <div class="row">
+    <div *ngFor="let category of categories" class="col">
+      <div class="card text-center card-bg mb-4" style="width: 10rem">
+        <mat-icon class="card-img-top">format_paint</mat-icon>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ category }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

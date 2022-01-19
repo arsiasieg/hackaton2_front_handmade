@@ -4,14 +4,14 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-categories-tutorials',
   templateUrl: './categories-tutorials.component.html',
-  styleUrls: ['./categories-tutorials.component.css']
+  styleUrls: ['./categories-tutorials.component.css'],
 })
 export class CategoriesTutorialsComponent implements OnInit {
+  categories = ['Peinture', 'Cuisine', 'Plomberie', 'Salle de bain'];
 
-  public constructor(private titleService: Title) { }
+  public constructor(private titleService: Title) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle("Category's tutorials")
+    this.titleService.setTitle("Category's tutorials");
   }
-
 }
