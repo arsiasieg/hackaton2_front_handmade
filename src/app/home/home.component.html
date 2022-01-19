@@ -1,1 +1,27 @@
-<p>home works!</p>
+<img class="soldesImage" src="../assets/img/home/soldes.jpg" alt="soldes' image">
+
+
+<div class="d-flex justify-content-between mt-3">
+    <h3 class="mx-3">
+        Produits vus récemment
+    </h3>
+    <div fxLayout="mx-2">
+        <button [disabled]="leftNavDisabled" (click)="moveLeft()"><mat-icon>chevron_left</mat-icon></button>
+        <button [disabled]="rightNavDisabled" (click)="moveRight()"><mat-icon>chevron_right</mat-icon></button>
+    </div>
+</div>
+<h6 class="mx-3">On les remet là, en souvenir</h6>
+
+<div class="demo-border">
+    <drag-scroll class="demo-one"
+      [drag-scroll-y-disabled]="true"
+      (indexChanged)="onIndexChanged($event)"
+      (reachesLeftBound)="leftBoundStat($event)"
+      (reachesRightBound)="rightBoundStat($event)"
+      #nav
+      >
+      <img class="imgCarousel m-3" drag-scroll-item *ngFor="let article of listArticles" src="../assets/img/home/{{article}}"/>
+    </drag-scroll>
+  </div>
+
+  <img class="home mt-3" src="../assets/img/home/home.png" alt="oops">

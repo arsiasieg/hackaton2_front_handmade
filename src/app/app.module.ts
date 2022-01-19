@@ -17,6 +17,7 @@ import { GreenBannerComponent } from './green-banner/green-banner.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragScrollModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
