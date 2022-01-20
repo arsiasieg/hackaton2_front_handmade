@@ -1,0 +1,18 @@
+.btn-primary {
+  background-color: #31b9ad;
+  border-color: #31b9ad;
+}
+button {
+  text-align: center;
+}
+
+.imgScreenshot {
+  width: 100%;
+}
+
+.modal-footer {
+  -webkit-box-pack: start;
+  -webkit-justify-content: center;
+  -ms-flex-pack: start;
+  justify-content: center;
+}

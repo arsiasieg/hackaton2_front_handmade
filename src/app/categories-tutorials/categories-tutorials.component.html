@@ -1,1 +1,17 @@
-<p>categories-tutorials works!</p>
+<div class="container">
+  <h3 class="ms-3 my-4">Nos tutoriels :</h3>
+
+  <div class="row">
+    <div *ngFor="let category of categories" class="col">
+      <div
+        class="card text-center card-bg mb-4"
+        [routerLink]="['/listTutorials']"
+      >
+        <div class="card-body d-flex flex-column align-items-center">
+          <mat-icon class="card-img-top mb-3">{{ category[1] }}</mat-icon>
+          <h5 class="card-title">{{ category[0] }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
