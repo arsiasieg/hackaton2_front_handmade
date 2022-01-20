@@ -1,74 +1,75 @@
-.project{
-    display:flex;
-    justify-content:space-around;
-    height: 60px;
-    background-color:#31b9ad;
- 
-
+mat-icon{
+    color:#0c193a;
 }
+
+.banner{
+    padding : .7rem;
+    background-color:#31b9ad;
+}
+
 input{
     border-radius: 15px;
-    width:80px;
-    height: 45;
-    
+    width:150px;
+    background-color : #31b9ad;
 }
+
+
 h2{
     color:#0c193a;
     font:Arial;
-    font-size: 27px;
-}
-.material-icons{
-    color:#0c193a;
-}
-.card1{
-    display :flex;
-    justify-content: space-between;
-}
-.produit{
-  background-color:red;
-    margin-top: 30px;
-    margin-left:30px;
-    margin-right: 20px;
-    box-sizing: 30em;
-    box-shadow: #0c193a;
-}
-.total{
-    display:flex;
-    justify-content:end;
-    
+    font-size: 20px;
+    margin : 0;
+    font-weight: bold;
 }
 
-.addition{
-    display:flex;
-    justify-content: center;
+.block{
+    padding : .5rem;
+    margin : 2rem;
+    box-sizing: 30em;
+    border-radius : 2px;
+    border : 1px solid rgba(192, 192, 192, 0.5);
+    box-shadow: 4px 4px 4px rgba(12, 25, 58, 0.25);
+}
+
+.product mat-icon{
+    text-align: center;
+    flex : 1
+}
+
+.product p{
+    text-align: center;
+    flex : 2;
+}
+
+.product .description{
+    flex : 3;
+    text-align: left;
+}
+
+
+.add{
+    font-size: 2.5rem;
 }
 
 .tuto{
    display:flex;
    justify-content: space-between;
-   background-color: #31b9ad;
+   flex-wrap: wrap;
+
 }
-.card2{
-    height: 10px;
+.card{
+    min-height: 125px;
+    padding : .3rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius : 10px;
+    background-size: cover;
+    box-shadow: 4px 4px 4px rgba(12, 25, 58, 0.4);
 }
-.card4{
-    margin-top:200px;
-    background-color:red;
-    margin-left:30px;
-    margin-right: 20px;
-    box-sizing: 30em;
-    box-shadow: #0c193a;
-}
+
+
 .final{
-    
-  
     display:flex;
-    justify-content:end;
-    bottom: 0px;
+    justify-content:space-around;
+    margin : 2rem;
 }
-.icard4{
-    display:flex;
-    justify-content: space-around;
-}
-
-
