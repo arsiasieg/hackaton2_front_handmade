@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { DragScrollComponent } from 'ngx-drag-scroll';
+import { Product } from '../shared/models/product.model';
+import { Multiservice } from '../shared/services/multi.service';
 
 @Component({
   selector: 'app-home',
@@ -8,32 +11,28 @@ import { DragScrollComponent } from 'ngx-drag-scroll';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  listProducts : Product[];
+  leftNavDisabled: boolean;
+  rightNavDisabled: boolean;
+  index: number;
 
-  listArticles : string[];
+  @ViewChild('nav', { read: DragScrollComponent, static: true }) ds: DragScrollComponent|undefined;
 
-  public constructor(private titleService: Title) {
-    this.listArticles = [
-      'article1.png',
-      'article2.png',
-      'article3.png',
-      'article4.png',
-      'article5.png',
-      'article6.png',
-      'article7.png',
-      'article8.png',
-    ];
+  public constructor(private titleService: Title, private multiServices : Multiservice, private router : Router) {
+    this.listProducts = multiServices.listProduct;
+    this.leftNavDisabled = false;
+    this.rightNavDisabled = false;
+    this.index = 0;
    }
 
   ngOnInit(): void {
     this.titleService.setTitle('Home')
   }
 
-  leftNavDisabled = false;
-  rightNavDisabled = false;
-  index = 0;
-
-  @ViewChild('nav', { read: DragScrollComponent, static: true }) ds: DragScrollComponent|undefined;
-
+  showArticle(product: Product){
+    this.multiServices.setProduct(product);
+    this.router.navigate(['/article'])
+  }
 
   moveLeft() {
     if(this.ds != undefined)
@@ -60,7 +59,6 @@ export class HomeComponent implements OnInit {
 
   onIndexChanged(idx : number) {
     this.index = idx;
-    console.log('current index: ' + idx);
   }
 
 }

@@ -5,22 +5,22 @@
 </div>
 
 <h2 class="title">Mes projets</h2>
-<div [routerLink]="['/project']" class="project d-flex justify-content-between my-4" *ngFor="let project of listProjects">
-    <div>
-        <div class="subtitle">{{project[0]}}</div>
-        <div>{{project[1]}}</div>
+<div class="project d-flex justify-content-between my-4" *ngFor="let project of listProjects">
+    <div (click)="setProject(project)">
+        <div class="subtitle">{{project.name}}</div>
+        <div>{{project.budget}}€</div>
     </div>
     <div class="action d-flex flex-column">
         <mat-icon>edit</mat-icon>
-        <mat-icon>delete</mat-icon>
+        <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal">delete</mat-icon>
     </div>
 </div>
 
 <h2 class="title">Mes anciens projets</h2>
 <div class="project d-flex justify-content-between my-4" *ngFor="let project of listOldProjects">
     <div>
-        <div class="subtitle">{{project[0]}}</div>
-        <div>{{project[1]}}</div>
+        <div class="subtitle">{{project.name}}</div>
+        <div>{{project.budget}}€</div>
     </div>
     <div class="action d-flex flex-column">
         <mat-icon>edit</mat-icon>
@@ -28,10 +28,52 @@
     </div>
 </div>
 
-<div [routerLink]="['/project']" class="create my-3">
+<div class="create my-3">
     + Créer un nouveau projet
 </div>
 
 <div class="deconnect my-3">
     Déconnexion
 </div>
+
+
+  <!-- Modal -->
+  <div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Êtes-vous sûr de vouloir supprimer ce projet ?</div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="deleteProject()"
+        >
+          Valider
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >
+          Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MultiserviceService } from './multiservice.service';
+import { Multiservice } from './multi.service';
 
 describe('MultiserviceService', () => {
-  let service: MultiserviceService;
+  let service: Multiservice;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MultiserviceService);
+    service = TestBed.inject(Multiservice);
   });
 
   it('should be created', () => {

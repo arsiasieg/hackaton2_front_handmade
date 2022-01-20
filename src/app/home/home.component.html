@@ -20,7 +20,7 @@
       (reachesRightBound)="rightBoundStat($event)"
       #nav
       >
-      <img class="imgCarousel m-3" drag-scroll-item *ngFor="let article of listArticles" src="../assets/img/home/{{article}}"/>
+      <img class="imgCarousel m-3" drag-scroll-item *ngFor="let product of listProducts" src="../assets/img/home/{{product.image}}" (click)="showArticle(product)"/>
     </drag-scroll>
   </div>
 

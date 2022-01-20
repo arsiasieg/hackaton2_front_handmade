@@ -9,8 +9,9 @@ mat-icon{
 
 input{
     border-radius: 15px;
-    width:150px;
+    width:100px;
     background-color : #31b9ad;
+    padding : 0 .5rem;
 }
 
 

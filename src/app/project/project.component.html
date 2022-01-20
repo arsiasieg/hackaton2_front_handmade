@@ -1,42 +1,48 @@
 <!-- PRODUCT -->
-<div class="banner d-flex justify-content-around align-items-center">
-    <span class="material-icons"> arrow_circle_left </span>
-    <h2>SALLE DE BAIN</h2>
+<div *ngIf="project != undefined" class="banner d-flex justify-content-around align-items-center">
+    <span [routerLink]="['/listProject']" class="material-icons"> arrow_circle_left </span>
+    <h2>{{project.name}}</h2>
   <div class="d-flex align-items-center">
     <mat-icon class="mx-1">account_balance_wallet</mat-icon>
-    <input type="text" />
+    <input type="text" value="{{project.budget}}" />
   </div>
 </div>
 
 <div class="d-flex justify-content-around m-4">
-  <h2>Budget après achats</h2> <h2>721£</h2>
+  <h2>Budget après achats</h2> <h2>{{remainingBudget}}€</h2>
 </div>
 
-<div class="block">
+<div  class="block">
   <h2>Mes produits</h2>
-  <div class="product d-flex justify-content-between my-3" *ngFor='let product of listProduct'>
-      <p class="description">{{product[0]}}</p>
-      <p>{{product[1]}}</p>
-      <p>{{product[2]}}</p>
-      <mat-icon>add_shopping_cart</mat-icon>
-      <mat-icon>delete</mat-icon>
-  </div>
-
-  <div class="container text-center">
-    <mat-icon class="add">add_circle_outline</mat-icon>
+  <div *ngIf='project != undefined'>
+    <div  *ngFor='let product of project.listProduct'>
+      <div *ngIf="!product.isBuy" class="product d-flex justify-content-between my-3">
+        <p class="description">{{product.name}}</p>
+        <p>{{product.price}}€</p>
+        <p>x1</p>
+        <mat-icon (click)="addProductToBuy(product)">add_shopping_cart</mat-icon>
+        <mat-icon data-bs-toggle="modal"
+        data-bs-target="#exampleModal">delete</mat-icon>
+      </div>
+    </div>
   </div>
   
-  <h2 class="d-flex justify-content-end">Total 20€</h2>
+
+  <div class="container text-center">
+    <mat-icon [routerLink]="['/home']" (click)="setUpdatedProject()" class="add">add_circle_outline</mat-icon>
+  </div>
+  
+  <h2 class="d-flex justify-content-end">Total {{totalProduct}}€</h2>
 </div>
 
 <!-- TUTORIALS -->
 <div class="block">
   <h2>Mes tutoriels</h2>
-  <div class="container my-3">
-    <div class="row">
-      <div class="col-6" *ngFor='let tuto of listTuto'>
-        <div class="card d-flex flex-column justify-content-center" style="background-image: url('../assets/img/project/bathroom.png');">
-          <p>{{tuto[0]}}</p>
+  <div class="container my-3" (click)="goOnTuto()">
+    <div *ngIf="project != undefined" class="row">
+      <div  class="col-6" *ngFor='let tuto of project.listTuto'>
+        <div class="card d-flex flex-column justify-content-center" style="background-image: url('../assets/img/project/{{tuto.image}}');">
+          <p>{{tuto.title}}</p>
           <div class="d-flex justify-content-center">
             <mat-icon class="mx-1">hardware</mat-icon>
             <mat-icon class="mx-1">hardware</mat-icon>
@@ -48,19 +54,67 @@
   </div>
 
   <div class="container text-center">
-    <mat-icon class="add">add_circle_outline</mat-icon>
+    <mat-icon [routerLink]="['/categoriesTutorials']" (click)="setUpdatedProject()" class="add">add_circle_outline</mat-icon>
   </div>
 </div>
 
 
 <!-- ACHATS -->
-<div class="block">
+<div class="block" *ngIf='project != undefined'>
   <h2>Mes achats</h2>
-  <div class="product d-flex justify-content-between my-3" *ngFor='let buy of listBuy'>
-      <p class="description">{{buy[0]}}</p>
-      <p>{{buy[1]}}</p>
-      <p>{{buy[2]}}</p>
-  </div>
+    <div *ngFor='let product of project.listProduct'>
+      <div *ngIf="product.isBuy" class="product d-flex justify-content-between my-3" >
+        <p class="description">{{product.name}}</p>
+        <p>{{product.price}}€</p>
+        <p>x1</p>
+      </div>
+    </div>
   
-  <h2 class="d-flex justify-content-end">Total 279€</h2>
+  <h2 class="d-flex justify-content-end">Total {{totalBuy}}€</h2>
 </div>
+
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+class="modal fade"
+id="exampleModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Êtes-vous sûr de vouloir supprimer l'article</div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="deleteProduct()"
+        >
+          Valider
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >
+          Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

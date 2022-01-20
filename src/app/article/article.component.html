@@ -1,15 +1,16 @@
 <div>
-    <img class="imgArticle" src="../assets/img/home/article8.png" alt="image de salle de bain">
+    <img *ngIf="product != undefined" class="imgArticle" src="../assets/img/home/{{product.image}}" alt="image de salle de bain">
 
     <img class="imgArticle" src="../assets/img/article/serviceInstall.png" alt="image de service pour installation">
    
     <div class="text-center">
         <!-- Button trigger modal -->
-        <button
+        <button *ngIf="product != undefined"
           type="button"
           class="btn btn-primary mb-2"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
+          (click)="addProductOnProject(product)"
         >
           Ajouter au projet
         </button>

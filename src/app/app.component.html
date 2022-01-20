@@ -1,4 +1,6 @@
 <app-header></app-header>
+<div *ngIf="project.name != undefined">
+    <app-green-banner ></app-green-banner>
+</div>
 <router-outlet></router-outlet>
-
 <app-footer></app-footer>

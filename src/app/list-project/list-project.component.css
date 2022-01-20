@@ -38,3 +38,23 @@ mat-icon{
     text-align: center;
     border-radius : 2px;
 }
+
+.btn-primary {
+    background-color: #31b9ad;
+    border-color: #31b9ad;
+  }
+
+  button {
+   text-align: center;
+  }
+  
+  .imgArticle {
+    width: 100%;
+  
+  }
+  .modal-footer {
+    -webkit-box-pack: start;
+    -webkit-justify-content: center;
+    -ms-flex-pack: start;
+    justify-content: center;
+  }
