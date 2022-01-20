@@ -9,3 +9,10 @@ button {
 .imgScreenshot {
   width: 100%;
 }
+
+.modal-footer {
+  -webkit-box-pack: start;
+  -webkit-justify-content: center;
+  -ms-flex-pack: start;
+  justify-content: center;
+}
