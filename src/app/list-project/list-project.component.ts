@@ -7,8 +7,20 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./list-project.component.css']
 })
 export class ListProjectComponent implements OnInit {
+  listProjects : string[][];
+  listOldProjects: string[][];
 
-  public constructor(private titleService: Title) { }
+  public constructor(private titleService: Title) {
+    this.listProjects =[
+      ['Salle de bain', '1000€'],
+      ['Terrasse', '2400€']
+    ]
+
+    this.listOldProjects =[
+      ['Cuisine', '2000€'],
+      ['Chambre d\'ami', '3000€']
+    ]
+   }
 
   ngOnInit(): void {
     this.titleService.setTitle('List project')
