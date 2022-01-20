@@ -8,10 +8,15 @@ import { Title } from '@angular/platform-browser';
 })
 export class ListTutorialComponent implements OnInit {
 
-  public constructor(private titleService: Title) { }
+ 
+
+  public constructor(private titleService: Title) { 
+    
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle('List tutorial')
+    
   }
 
 }
