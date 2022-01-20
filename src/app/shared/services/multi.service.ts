@@ -13,6 +13,7 @@ export class Multiservice {
   project: Project;
   projectToUpdated : Project;
   tutorial: Tutorial;
+  remainingBudget: number|undefined;
 
   constructor() {
     this.listProduct = [
@@ -32,9 +33,11 @@ export class Multiservice {
       new Project('Cuisine', 12000, [], [], true),
     ]
 
-    this.projectToUpdated = this.listProject[0];
+    
     this.tutorial = new Tutorial("Comment choisir une barre et des anneaux pour rideau de douche", 3, 'bathroom.png');
     this.project = new Project();
+    this.projectToUpdated = new Project();
+    this.remainingBudget = 0;
    }
 
    //PRODUCT
@@ -47,6 +50,7 @@ export class Multiservice {
 
    addProductOnUpdatedProject(product: Product){
     this.projectToUpdated.listProduct?.push(product);
+    if(this.remainingBudget != undefined) this.setRemainingBudget(this.remainingBudget - product.price)
    }
 
    addProductToBuy(addedProduct: Product){
@@ -68,28 +72,42 @@ export class Multiservice {
       this.project.listTuto = project.listTuto;
       this.project.listProduct = project.listProduct;
       this.project.isFinished = project.isFinished;
-      this.setUpdatedProject(this.project);
-   }
-
-   getUpdatedProject(){
-     return this.projectToUpdated;
-   }
-
-   setUpdatedProject(project: Project){
-     this.projectToUpdated = project;
+      this.setRemainingBudget(project.budget);
    }
 
    deleteProject(){
      this.listProject = this.listProject.filter(project => project.name != this.projectToUpdated.name)
    }
 
-   disconnectProject(){
-    this.project.name = undefined;
-    this.project.budget = undefined;
-    this.project.listTuto = undefined;
-    this.project.listProduct = undefined;
-    this.project.isFinished = undefined;
+   getUpdatedProject(){
+    return this.projectToUpdated;
+  }
+
+  setUpdatedProject(project: Project){
+   this.projectToUpdated.name = project.name;
+   this.projectToUpdated.budget = project.budget;
+   this.projectToUpdated.listTuto = project.listTuto;
+   this.projectToUpdated.listProduct = project.listProduct;
+   this.projectToUpdated.isFinished = project.isFinished;
+
+  }
+
+   disconnectUpdatedProject(){
+    this.projectToUpdated.name = undefined;
+    this.projectToUpdated.budget = undefined;
+    this.projectToUpdated.listTuto = undefined;
+    this.projectToUpdated.listProduct = undefined;
+    this.projectToUpdated.isFinished = undefined;
    }
+
+   getRemainingBudget(){
+     return this.remainingBudget;
+   }
+
+   setRemainingBudget(budget: number|undefined){
+     this.remainingBudget = budget;
+   }
+
 
      //TUTORIAL
    addTuto(){

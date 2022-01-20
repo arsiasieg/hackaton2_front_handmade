@@ -2,13 +2,13 @@
     <div class="d-flex">
         <mat-icon>construction</mat-icon>
         <select name="" id="">
-            <option value="Cuisine">Salle de bain</option>
+            <option value="{{project.name}}">{{project.name}}</option>
             <option value="Terrasse">Terrasse</option>
         </select>
     </div>
     <div class="d-flex">
         <mat-icon>account_balance_wallet</mat-icon>
-        <span>8500€</span>
+        <span>{{remainingBudget}}€</span>
     </div>
-    <mat-icon>logout</mat-icon>
+    <mat-icon (click)="disconnectUpdatedProject()">logout</mat-icon>
 </div>

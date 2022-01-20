@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
   project: Project;
 
   constructor(private multiServices: Multiservice){
-    this.project = this.multiServices.getProject()
+    this.project = this.multiServices.getUpdatedProject()
   }
 
   ngOnInit(): void {
