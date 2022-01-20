@@ -2,7 +2,49 @@
     <img class="imgArticle" src="../assets/img/home/article8.png" alt="image de salle de bain">
 
     <img class="imgArticle" src="../assets/img/article/serviceInstall.png" alt="image de service pour installation">
+   
     <div class="text-center">
-        <button type="button" class="btn btn-primary mb-2">Ajouter au projet</button>
-    </div>
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Ajouter au projet
+        </button>
+    
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">L'article a bien été ajouté à votre projet</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Continuer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
