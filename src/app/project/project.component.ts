@@ -30,14 +30,14 @@ export class ProjectComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Project')
 
-    this.project.listProduct?.forEach(product => {
+    this.project.products?.forEach(product => {
       if(!product.isBuy) this.totalProduct = this.totalProduct + product.price;
       if(product.isBuy) this.totalBuy = this.totalBuy + product.price;
     });
   }
 
   setUpdatedProject(){
-    if(this.project != undefined) this.multiservices.setUpdatedProject(this.project)
+    // if(this.project != undefined) this.multiservices.setUpdatedProject(this.project)
   }
 
   addProductToBuy(addedProduct: Product){

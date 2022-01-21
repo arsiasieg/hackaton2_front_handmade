@@ -13,9 +13,9 @@
     </div>
   </div>
     
-    <div class="action d-flex flex-column">
+    <div *ngIf="project.id != undefined" class="action d-flex flex-column">
         <mat-icon>edit</mat-icon>
-        <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="stockProject(project)">delete</mat-icon>
+        <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getProjectId(project.id)">delete</mat-icon>
     </div>
 </div>
 

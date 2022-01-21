@@ -5,16 +5,16 @@ export class Project{
     id: number|undefined;
     name : string|undefined;
     budget : number|undefined;
-    listProduct : Product[]|undefined;
-    listTuto : Tutorial[]|undefined;
+    products : Product[]|undefined;
+    tutorials : Tutorial[]|undefined;
     isFinished: boolean|undefined;
 
-    constructor(id?: number, name?: string, budget?: number, listProduct?: Product[], listTuto?: Tutorial[], isFinished?: boolean){
+    constructor(id?: number, name?: string, budget?: number, products?: Product[], tutorials?: Tutorial[], isFinished?: boolean){
         this.id = id;
         this.name = name;
         this.budget = budget;
-        this.listProduct = listProduct;
-        this.listTuto = listTuto;
+        this.products = products;
+        this.tutorials = tutorials;
         this.isFinished = isFinished;
     }
 

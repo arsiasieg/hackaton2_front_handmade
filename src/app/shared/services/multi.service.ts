@@ -13,7 +13,6 @@ export class Multiservice {
   listProduct : Product[];
   product: Product|undefined;
   project: Project;
-  projectToUpdated : Project;
   tutorial: Tutorial;
   remainingBudget: number|undefined;
   api : string;
@@ -41,9 +40,8 @@ export class Multiservice {
     // ]
 
     
-    this.tutorial = new Tutorial("Comment choisir une barre et des anneaux pour rideau de douche", 3, 'bathroom.png');
+    this.tutorial = new Tutorial(1,"Comment choisir une barre et des anneaux pour rideau de douche", 3, 'bathroom.png');
     this.project = new Project();
-    this.projectToUpdated = new Project();
     this.remainingBudget = 0;
    }
 
@@ -62,20 +60,19 @@ export class Multiservice {
       this.product = product;
    }
 
-   addProductOnUpdatedProject(product: Product){
-     console.log(this.projectToUpdated)
-    this.projectToUpdated.listProduct?.push(product);
-    this.observable = this.http.put<any>(this.api+"projets/" + this.projectToUpdated.id, this.projectToUpdated)
-
-    this.observable.subscribe((project : Project)=>{
-      console.log(project)
+   addProductOnProject(product: Product){
+    this.project.products?.push(product);
+    console.log(this.project);
+    this.observable = this.http.put<any>(this.api+"projets/" + this.project.id, this.project)
+    this.observable.subscribe(project =>{
+      console.log(this.project)
     })
 
     if(this.remainingBudget != undefined) this.setRemainingBudget(this.remainingBudget - product.price)
    }
 
    addProductToBuy(addedProduct: Product){
-    this.projectToUpdated.listProduct?.forEach(product => {
+    this.project.products?.forEach(product => {
       if(product.name == addedProduct.name){
         product.isBuy = !product.isBuy;
       }
@@ -102,8 +99,8 @@ export class Multiservice {
       this.project.id = project.id
       this.project.name = project.name;
       this.project.budget = project.budget;
-      this.project.listTuto = project.listTuto;
-      this.project.listProduct = project.listProduct;
+      this.project.tutorials = project.tutorials;
+      this.project.products = project.products;
       this.project.isFinished = project.isFinished;
       this.setRemainingBudget(project.budget);
    }
@@ -112,26 +109,14 @@ export class Multiservice {
     return this.http.delete<any>(this.api+"projets/"+id, )
    }
 
-   getUpdatedProject(){
-    return this.projectToUpdated;
-  }
 
-  setUpdatedProject(project: Project){
-    this.projectToUpdated.id = project.id
-   this.projectToUpdated.name = project.name;
-   this.projectToUpdated.budget = project.budget;
-   this.projectToUpdated.listTuto = project.listTuto;
-   this.projectToUpdated.listProduct = project.listProduct;
-   this.projectToUpdated.isFinished = project.isFinished;
-
-  }
-
-   disconnectUpdatedProject(){
-    this.projectToUpdated.name = undefined;
-    this.projectToUpdated.budget = undefined;
-    this.projectToUpdated.listTuto = undefined;
-    this.projectToUpdated.listProduct = undefined;
-    this.projectToUpdated.isFinished = undefined;
+   disconnectProject(){
+    this.project.name = undefined;
+    this.project.budget = undefined;
+    this.project.tutorials = undefined;
+    this.project.products = undefined;
+    this.project.isFinished = undefined;
+    console.log("Reset")
    }
 
    getRemainingBudget(){
@@ -149,7 +134,7 @@ export class Multiservice {
     }
 
    addTuto(){
-     this.project?.listTuto?.push(this.tutorial)
+     this.project?.tutorials?.push(this.tutorial)
    }
    
 }

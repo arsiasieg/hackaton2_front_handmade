@@ -20,7 +20,7 @@ export class ArticleComponent implements OnInit {
   }
 
   addProductOnProject(product : Product){
-    this.multiServices.addProductOnUpdatedProject(product);
+    this.multiServices.addProductOnProject(product);
   }
 
 }

@@ -15,7 +15,7 @@
 <div  class="block">
   <h2>Mes produits</h2>
   <div *ngIf='project != undefined'>
-    <div  *ngFor='let product of project.listProduct'>
+    <div  *ngFor='let product of project.products'>
       <div *ngIf="!product.isBuy" class="product d-flex justify-content-between my-3">
         <p class="description">{{product.name}}</p>
         <p>{{product.price}}€</p>
@@ -40,7 +40,7 @@
   <h2>Mes tutoriels</h2>
   <div class="container my-3" (click)="goOnTuto()">
     <div *ngIf="project != undefined" class="row">
-      <div  class="col-6" *ngFor='let tuto of project.listTuto'>
+      <div  class="col-6" *ngFor='let tuto of project.tutorials'>
         <div class="card d-flex flex-column justify-content-center" style="background-image: url('../assets/img/project/{{tuto.image}}');">
           <p>{{tuto.title}}</p>
           <div class="d-flex justify-content-center">
@@ -62,7 +62,7 @@
 <!-- ACHATS -->
 <div class="block" *ngIf='project != undefined'>
   <h2>Mes achats</h2>
-    <div *ngFor='let product of project.listProduct'>
+    <div *ngFor='let product of project.products'>
       <div *ngIf="product.isBuy" class="product d-flex justify-content-between my-3" >
         <p class="description">{{product.name}}</p>
         <p>{{product.price}}€</p>

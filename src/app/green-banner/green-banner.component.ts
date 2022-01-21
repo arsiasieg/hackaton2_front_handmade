@@ -12,7 +12,7 @@ export class GreenBannerComponent implements OnInit {
   remainingBudget : number|undefined;
 
   constructor(private multiServices:Multiservice) {
-    this.project = multiServices.getUpdatedProject();
+    this.project = multiServices.getProject();
     if(this.project.budget != undefined) this.remainingBudget = this.multiServices.getRemainingBudget();
    }
 
@@ -21,7 +21,7 @@ export class GreenBannerComponent implements OnInit {
   }
 
   disconnectUpdatedProject(){
-    this.multiServices.disconnectUpdatedProject();
+    this.multiServices.disconnectProject();
   }
 
 }
