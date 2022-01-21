@@ -19,7 +19,12 @@ export class HomeComponent implements OnInit {
   @ViewChild('nav', { read: DragScrollComponent, static: true }) ds: DragScrollComponent|undefined;
 
   public constructor(private titleService: Title, private multiServices : Multiservice, private router : Router) {
-    this.listProducts = multiServices.listProduct;
+    this.listProducts = [];
+    
+    this.multiServices.getAllProduct().subscribe((listProduct: any) => {
+      this.listProducts = listProduct;
+    })
+
     this.leftNavDisabled = false;
     this.rightNavDisabled = false;
     this.index = 0;

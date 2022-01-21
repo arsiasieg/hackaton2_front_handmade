@@ -6,13 +6,16 @@
 
 <h2 class="title">Mes projets</h2>
 <div class="project d-flex justify-content-between my-4" *ngFor="let project of listProjects">
-    <div (click)="setProject(project)">
-        <div class="subtitle">{{project.name}}</div>
-        <div>{{project.budget}}€</div>
+  <div *ngIf="project.id != undefined">
+    <div (click)="getProjectId(project.id)">
+      <div class="subtitle">{{project.name}}</div>
+      <div>{{project.budget}}€</div>
     </div>
+  </div>
+    
     <div class="action d-flex flex-column">
         <mat-icon>edit</mat-icon>
-        <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal">delete</mat-icon>
+        <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="stockProject(project)">delete</mat-icon>
     </div>
 </div>
 

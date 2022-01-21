@@ -20,7 +20,7 @@ export class ProjectComponent implements OnInit {
 
 
   public constructor(private titleService: Title, private multiservices: Multiservice, private router: Router) {
-    this.project = multiservices.project;
+    this.project = multiservices.getProject();
     this.totalProduct = 0;
     this.totalBuy = 0;
     if(this.project.budget != undefined) this.remainingBudget = this.project.budget - this.totalBuy;
